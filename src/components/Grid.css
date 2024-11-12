@@ -1,0 +1,56 @@
+/* Make the overall grid have a nice background color */
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: nowrap; Prevent wrapping to the next row for continuous movement */
+    width: 100%;
+    max-width: 450px; /* Control the maximum width */
+    margin: 20px auto;
+    background-color: #282828; /* Dark background for grid */
+    border-radius: 10px; /* Rounded corners for the grid */
+    padding: 5px; /* Padding inside the grid */
+    overflow: hidden; /* Hide overflow to create a sliding effect */
+  }
+  
+  /* Styling for each grid cell */
+  .grid-cell {
+    width: 20px;
+    height: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px; /* Round the corners of the cells */
+    border: 1px solid #333; /* Subtle border to differentiate cells */
+    background-color: #222; /* Default dark background for inactive cells */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Soft shadow inside cells */
+  }
+  
+  /* Active (text) cells will have a red or random color */
+  .grid-cell.active {
+    background-color: #FF6347; /* Tomato red */
+    box-shadow: none; /* Remove inner shadow for active cells */
+  }
+  
+  /* Hover effect on cells */
+  .grid-cell:hover {
+    transform: scale(1.1); /* Slightly enlarge the cell on hover */
+    cursor: pointer;
+  }
+  
+  /* Optional: Make the grid container have a glowing effect on hover */
+  .grid-container:hover {
+    box-shadow: 0 0 20px rgba(255, 99, 71, 0.8); /* Glowing effect when the grid is hovered */
+  }
+  
+  /* Keyframe animation for the scrolling effect - move the grid one column left */
+  @keyframes scrollText {
+    0% {
+      transform: translateX(0); /* Start at the initial position */
+    }
+    100% {
+      transform: translateX(-100%); /* Move one full column to the left */
+    }
+  }
+  
+  .grid-container {
+    animation: scrollText 10s linear infinite; /* Apply animation to move the grid left */
+  }
+  
